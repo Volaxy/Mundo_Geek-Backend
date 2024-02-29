@@ -1,4 +1,4 @@
-import { createProductUsecase } from "../services/productService.js";
+import { createProductUsecase, getProductsUsecase } from "../services/productService.js";
 
 async function createProduct(request, response) {
     try {
@@ -12,6 +12,19 @@ async function createProduct(request, response) {
     }
 }
 
+async function getProducts(request, response) {
+    try {
+        const products = await getProductsUsecase();
+
+        response.status(200).json(products);
+    } catch (error) {
+        const { statusCode, message } = error;
+
+        response.status(statusCode || 500).json({ error: message });
+    }
+}
+
 export {
     createProduct,
+    getProducts,
 };

@@ -22,6 +22,13 @@ async function createProductUsecase(productBody) {
     return savedProduct;
 }
 
+async function getProductsUsecase() {
+    const products = await Product.find();
+
+    return products;
+}
+
 export {
     createProductUsecase,
+    getProductsUsecase,
 };

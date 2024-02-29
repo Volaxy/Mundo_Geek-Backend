@@ -1,7 +1,7 @@
 import express from "express";
 
 import { createUser, loginUser } from "./src/controllers/userController.js";
-import { createProduct } from "./src/controllers/productController.js";
+import { createProduct, getProducts } from "./src/controllers/productController.js";
 
 const routes = express.Router();
 
@@ -11,6 +11,7 @@ routes.post("/login", loginUser);
 
 // Product
 routes.post("/products", createProduct);
+routes.get("/products", getProducts);
 
 export {
     routes
