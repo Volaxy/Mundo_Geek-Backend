@@ -6,6 +6,15 @@ class UserAlreadyExistsError extends Error {
     }
 }
 
+class UserNotFoundError extends Error {
+    constructor(statusCode, message) {
+        super(message);
+
+        this.statusCode = statusCode;
+    }
+}
+
 export {
     UserAlreadyExistsError,
+    UserNotFoundError,
 };

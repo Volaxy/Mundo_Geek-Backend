@@ -1,4 +1,4 @@
-import { createUserUsecase } from "../services/userService.js";
+import { createUserUsecase, loginUserUsecase } from "../services/userService.js";
 
 async function createUser(request, response) {
     try {
@@ -12,16 +12,19 @@ async function createUser(request, response) {
     }
 }
 
-async function getUsers(request, response) {
+async function loginUser(request, response) {
     try {
-        const users = await find();
-        response.status(200).json(users);
-    } catch (userError) {
-        response.status(500).json({ error: error.message });
+        const username = await loginUserUsecase(request.body);
+
+        response.status(200).json({ username });
+    } catch (error) {
+        const { statusCode, message } = error;
+
+        response.status(statusCode || 500).json({ error: message });
     }
 }
 
 export {
     createUser,
-    getUsers,
+    loginUser,
 };
