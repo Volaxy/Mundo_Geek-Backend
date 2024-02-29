@@ -1,10 +1,12 @@
-const Router = require("express");
+import Router from "express";
 
-const { register } = require("./src/controllers/account");
+import { register } from "./src/controllers/account.js";
 
 const router = Router();
 
 // REGISTER
-router.get("/register", register);
+router.post("/register", register);
 
-module.exports = router;
+export {
+    router
+};

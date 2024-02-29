@@ -1,9 +1,9 @@
-const express = require('express');
+import express, { json } from 'express';
 
-const router = require("./routes");
+import { router } from "./routes.js";
 
 const app = express();
-app.use(express.json());
+app.use(json());
 app.use(router);
 
 const PORT = 3000;
