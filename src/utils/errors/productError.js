@@ -1,5 +1,5 @@
 class ProductAlreadyExistsError extends Error {
-    constructor(statusCode, message) {
+    constructor(statusCode, message = "Produto não encontrado") {
         super(message);
 
         this.statusCode = statusCode;

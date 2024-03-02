@@ -13,7 +13,7 @@ async function createProductUsecase(productBody) {
     const existingProduct = await Product.findOne({ category: product.category, name: product.name });
 
     if(existingProduct) {
-        throw new ProductAlreadyExistsError(400, "Productname already exists");
+        throw new ProductAlreadyExistsError(400, "O produto com o mesmo nome e categoria já existe");
     }
 
     const newProduct = new Product(product);

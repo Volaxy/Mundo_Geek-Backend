@@ -10,7 +10,7 @@ async function createUserUsecase(userBody) {
     const existingUser = await User.findOne({ username: user.username });
 
     if(existingUser) {
-        throw new UserAlreadyExistsError(400, "Username already exists");
+        throw new UserAlreadyExistsError(400, "O nome de usuário já existe");
     }
 
     const newUser = new User(user);
@@ -31,7 +31,7 @@ async function loginUserUsecase(userBody) {
     });
 
     if(!existingUser) {
-        throw new UserNotFoundError(406, "Incorrect username or password");
+        throw new UserNotFoundError(406, "Nome de usuário ou senha incorretos");
     }
 
     return existingUser.username;
