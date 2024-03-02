@@ -2,6 +2,7 @@ import express from "express";
 
 import { createUser, loginUser } from "./src/controllers/userController.js";
 import { createProduct, getProducts } from "./src/controllers/productController.js";
+import { createCategory, getCategoryByName } from "./src/controllers/categoryController.js";
 
 const routes = express.Router();
 
@@ -12,6 +13,10 @@ routes.post("/login", loginUser);
 // Product
 routes.post("/products", createProduct);
 routes.get("/products", getProducts);
+
+// Category
+routes.post("/category", createCategory);
+routes.get("/category/:name", getCategoryByName);
 
 export {
     routes

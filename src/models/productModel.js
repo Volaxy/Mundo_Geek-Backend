@@ -1,13 +1,13 @@
 import { Schema, model } from 'mongoose';
 
-const ProdutoSchema = new Schema({
+const ProdutSchema = new Schema({
     url: {
         type: String,
         required: false,
     },
     category: {
-        type: String,
-        required: true,
+        type: Schema.Types.ObjectId,
+        ref: "Category",
     },
     name: {
         type: String,
@@ -20,12 +20,12 @@ const ProdutoSchema = new Schema({
     description: {
         type: String,
         required: false,
-    }
+    },
 });
 
-ProdutoSchema.index({ category: 1, name: 1 }, { unique: true });
+ProdutSchema.index({ category: 1, name: 1 }, { unique: true });
 
-const Product = model('Product', ProdutoSchema);
+const Product = model('Product', ProdutSchema);
 
 export {
     Product
