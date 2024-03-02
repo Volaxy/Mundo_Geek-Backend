@@ -15,6 +15,12 @@ async function createCategoryUsecase(categoryBody) {
     return savedCategory;
 }
 
+async function getCategoriesUsecase() {
+    const categories = await Category.find().populate("products");
+
+    return categories;
+}
+
 async function getCategoryByNameUsecase(name) {
     const category = await Category.findOne({ name: name.toLowerCase() }).populate("products");
     if(!category) throw new CategoryNotFoundError(404, "A categoria com esse nome não foi encontrada");
@@ -24,5 +30,6 @@ async function getCategoryByNameUsecase(name) {
 
 export {
     createCategoryUsecase,
+    getCategoriesUsecase,
     getCategoryByNameUsecase,
 };

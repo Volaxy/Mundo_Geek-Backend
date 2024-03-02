@@ -1,4 +1,4 @@
-import { createCategoryUsecase, getCategoryByNameUsecase } from "../services/categoryService.js";
+import { createCategoryUsecase, getCategoriesUsecase, getCategoryByNameUsecase } from "../services/categoryService.js";
 
 async function createCategory(request, response) {
     try {
@@ -6,6 +6,18 @@ async function createCategory(request, response) {
 
         response.status(201).json(category);
     } catch (error) {
+        const { statusCode, message } = error;
+
+        response.status(statusCode || 500).json({ error: message });
+    }
+}
+
+async function getCategories(request, response) {
+    try {
+        const categories = await getCategoriesUsecase();
+
+        response.status(200).json(categories);
+    } catch(error) {
         const { statusCode, message } = error;
 
         response.status(statusCode || 500).json({ error: message });
@@ -26,5 +38,6 @@ async function getCategoryByName(request, response) {
 
 export {
     createCategory,
+    getCategories,
     getCategoryByName,
 };
