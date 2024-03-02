@@ -7,7 +7,6 @@ async function createCategoryUsecase(categoryBody) {
     };
 
     const existingCategory = await Category.findOne({ name: category.name });
-
     if(existingCategory) throw new CategoryAlreadyExistsError(400, "Já existe uma categoria com esse nome");
 
     const newCategory = new Category(category);
@@ -17,11 +16,11 @@ async function createCategoryUsecase(categoryBody) {
 }
 
 async function getCategoryByNameUsecase(name) {
-    const category = await Category.findOne({ name: name.toLowerCase() }).populate("products");
+    // const category = await Category.findOne({ name: name.toLowerCase() }).populate("products");
+    // if(!category) throw new CategoryNotFoundError(404, "A categoria com esse nome não foi encontrada");
 
-    if(!category) throw new CategoryNotFoundError(404, "A categoria com esse nome não foi encontrada");
-
-    return category;
+    // return category;
+    return await Category.find().populate("products");
 }
 
 export {
