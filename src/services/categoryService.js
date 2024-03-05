@@ -23,7 +23,6 @@ async function getCategoriesUsecase() {
 
 async function getCategoryByNameUsecase(name) {
     const category = await Category.findOne({ name: name.toLowerCase() }).populate("products");
-    if(!category) throw new CategoryNotFoundError(404, "A categoria com esse nome não foi encontrada");
 
     return category;
 }

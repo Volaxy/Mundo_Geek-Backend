@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "6beb7dff-6145-485b-9626-f80c741422a0",
+		"name": "Mundo Geek",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30056941"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/register",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/login",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Product",
+			"item": [
+				{
+					"name": "Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"url\": \"\",\r\n    \"category\": \"consoles\",\r\n    \"name\": \"PS5\",\r\n    \"price\": 5000,\r\n    \"description\": \"Description of the Product\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/{{PRODUCTS_ROUTE}}",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"{{PRODUCTS_ROUTE}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/{{PRODUCTS_ROUTE}}",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"{{PRODUCTS_ROUTE}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category",
+			"item": [
+				{
+					"name": "Category",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"New Category\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{DOMAIN}}/{{CATEGORIES_ROUTE}}",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"{{CATEGORIES_ROUTE}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Categories",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/{{CATEGORIES_ROUTE}}",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"{{CATEGORIES_ROUTE}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Category By Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{DOMAIN}}/{{CATEGORIES_ROUTE}}/conSolE",
+							"host": [
+								"{{DOMAIN}}"
+							],
+							"path": [
+								"{{CATEGORIES_ROUTE}}",
+								"conSolE"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "DOMAIN",
+			"value": "localhost:3000",
+			"type": "string"
+		},
+		{
+			"key": "PRODUCTS_ROUTE",
+			"value": "products",
+			"type": "string"
+		},
+		{
+			"key": "CATEGORIES_ROUTE",
+			"value": "category",
+			"type": "string"
+		}
+	]
+}
