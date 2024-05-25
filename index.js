@@ -7,7 +7,7 @@ import "./src/db/connection.js";
 const app = express();
 app.use(json());
 app.use(cors({
-    origin: "https://mundo-geek.vercel.app",
+    origin: "*",
     methods: "POST,GET",
 }));
 app.use(routes);
